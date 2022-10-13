@@ -26,17 +26,18 @@ const Main = () => {
 
 const addInfo= async (puppiesId)=>{
   const response = await fetch (`https://fsa-puppy-bowl.herokuapp.com/api/2209-FTB-ET-WEB-FT/players/${puppiesId}`);
-  const pupInfo= await response.json();
+  const result = await response.json();
+  const pupInfo = result.data.player
+  console.log(pupInfo);
   setPupInfo(pupInfo)}
-
-
-
-
 
   return (
     <div id="main">
       <Navbar />
-      <Puppies puppies = {puppies} />
+      {
+        pupInfo.id ? <AdditionalInfo pupInfo = {pupInfo} /> : 
+        <Puppies puppies = {puppies} addInfo = {addInfo}/>
+      }
     </div>
   );
 };

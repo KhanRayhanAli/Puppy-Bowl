@@ -3,6 +3,7 @@ import {AdditionalInfo} from './'
 
 const Puppies = (props) => {
     const puppies = props.puppies
+    const addInfo = props.addInfo
     return (
     <div id="puppiesEverywhere">
         {puppies.map((puppy) => {
@@ -14,7 +15,7 @@ const Puppies = (props) => {
                    {/* <div> {puppy.breed}</div>
                    <div> {puppy.status}</div> */}
 
-<button onClick={<AdditionalInfo puppies={puppies}/>} id="addDets">Additional details</button>
+<button onClick={() => {addInfo(puppy.id)}} id="addDets">Additional details</button>
                 </div>
             )
         })}
