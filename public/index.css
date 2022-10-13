@@ -15,3 +15,15 @@ body {
   display: flex;
   align-items: center;
 }
+
+#nameText {
+  margin: .5rem;
+}
+
+#breedText {
+  margin: .5rem;
+}
+
+#pupSubmit {
+  margin: .5rem;
+}
