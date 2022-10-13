@@ -1,9 +1,13 @@
 import React, {useEffect, useState} from "react";
 import {Navbar} from './';
 import {Puppies} from './';
+import {AdditionalInfo} from './'
 
 const Main = () => {
+
   const [puppies, setPuppies] = useState([])
+  const [pupInfo, setPupInfo]=useState({})
+
   useEffect(() => {
     async function getPuppyData() {
       try {
@@ -19,6 +23,16 @@ const Main = () => {
     }
     getPuppyData()
   }, [])
+
+const addInfo= async (puppiesId)=>{
+  const response = await fetch (`https://fsa-puppy-bowl.herokuapp.com/api/2209-FTB-ET-WEB-FT/players/${puppiesId}`);
+  const pupInfo= await response.json();
+  setPupInfo(pupInfo)}
+
+
+
+
+
   return (
     <div id="main">
       <Navbar />

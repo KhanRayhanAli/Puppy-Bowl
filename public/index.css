@@ -1,8 +1,10 @@
 body {
+
   font-family: 'Raleway', Arial, sans-serif;
   height: 100vh;
   width: 100vw;
   margin: 0;
+
 }
 
 #navbar {
@@ -14,6 +16,14 @@ body {
   color: white;
   display: flex;
   align-items: center;
+
+}
+#puppiesEverywhere{
+display: flex;
+flex-wrap: wrap;
+margin: 1rem;
+
+
 }
 
 #nameText {
@@ -26,4 +36,37 @@ body {
 
 #pupSubmit {
   margin: .5rem;
+}
+.puppy{
+  display: flex;
+  flex-direction: column;
+  height: 310px;
+  width: 150px;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem;
+  margin-left: 2rem;
+  font-size: 15px;
+  justify-content: space-between;
+  border: 2px solid black;
+  box-shadow: 0 2 5 2;
+
+
+}
+img{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: baseline;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+#addDets{
+  height: 1rem;
+  width: 100%;
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+justify-content: center;
+cursor: pointer;
 }
