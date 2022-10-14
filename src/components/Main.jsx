@@ -10,15 +10,17 @@ const Main = () => {
   const [searchInfo, setSearchInfo]=useState({names:"", breed:""})
 
   function filterPuppies() {
-    let filteredPuppies = puppies
-    if (searchInfo.length > 0) {
-      console.log("Hello")
-      const pupFilter = filteredPuppies.filter(() => {
-        return data.name == searchInfo
+    // let filteredPuppies = puppies
+    if (!searchInfo.names) {return puppies}
+    else{
+
+      return puppies.filter((puppy) => {
+        console.log(puppy.name)
+        return puppy.name.toLowerCase() == searchInfo.names.toLowerCase()
       })
-      console.log(pupFilter)
+
     }
-    return filteredPuppies
+
   }
 
   useEffect(() => {
