@@ -30,12 +30,22 @@ const addInfo= async (puppiesId)=>{
   const pupInfo = result.data.player
   console.log(pupInfo);
   setPupInfo(pupInfo)}
-
+<div id="puppiesEverywhere">
+        {puppies.map((puppy) => {
+            return (
+                <div key= {`puppies-${puppy.id}`} className="puppy">
+                   <div> {puppy.name}</div>
+                   <img src={puppy.imageUrl}/>
+                    <button onClick={() => {addInfo(puppy.id)}} id="addDets">Additional details</button>
+                </div>
+            )
+        })}
+    </div>
   return (
     <div id="main">
       <Navbar />
       {
-        pupInfo.id ? <AdditionalInfo pupInfo = {pupInfo} /> : 
+        pupInfo.id ? <AdditionalInfo pupInfo = {pupInfo} puppies = {puppies} /> : 
         <Puppies puppies = {puppies} addInfo = {addInfo}/>
       }
     </div>

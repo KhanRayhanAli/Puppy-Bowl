@@ -11,11 +11,7 @@ const Puppies = (props) => {
                 <div key= {`puppies-${puppy.id}`} className="puppy">
                    <div> {puppy.name}</div>
                    <img src={puppy.imageUrl}/>
-
-                   {/* <div> {puppy.breed}</div>
-                   <div> {puppy.status}</div> */}
-
-<button onClick={() => {addInfo(puppy.id)}} id="addDets">Additional details</button>
+                    <button onClick={() => {addInfo(puppy.id)}} id="addDets">Additional details</button>
                 </div>
             )
         })}
