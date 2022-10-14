@@ -2,9 +2,7 @@ import React from "react";
 
 
 const AdditionalInfo = (props) => {
-  // const puppies = props.puppies
   const pupInfo = props.pupInfo
-  // const addInfo= props.addInfo
   const setPupInfo=props.setPupInfo
 
   return(
@@ -12,7 +10,7 @@ const AdditionalInfo = (props) => {
     <button onClick={() => {setPupInfo({id:null})}} id="home">Home</button>
     <div id='puppyProfile'>
         <img id='Pfp' src={pupInfo.imageUrl} />
-      <div id='pupStuff'>
+        <div id='pupStuff'>
           <p><b>Name: </b>{pupInfo.name}</p>
           <p><b>Breed: </b>{pupInfo.breed}</p>
           <p><b>ID: </b>{pupInfo.id}</p>
@@ -22,14 +20,8 @@ const AdditionalInfo = (props) => {
           {/* <p><b>Teammates: </b>{pupInfo.team}</p> */}
         </div>
     </div>
-
-        </div>
+  </div>
   );
-
 };
-
-
-
-
 
 export default AdditionalInfo
