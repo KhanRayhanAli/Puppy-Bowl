@@ -1,6 +1,7 @@
 import React from "react";
 
-const Navbar = () => {
+const Navbar = (props) => {
+  searchInfo=props.searchInfo
   return (
     <div id="navbar">
         <h3 id='nameText'>Name: </h3>

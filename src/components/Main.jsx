@@ -7,6 +7,7 @@ const Main = () => {
 
   const [puppies, setPuppies] = useState([])
   const [pupInfo, setPupInfo]=useState({})
+  const [searchInfo, setSearchInfo]=useState("")
 
   useEffect(() => {
     async function getPuppyData() {
@@ -43,9 +44,9 @@ const addInfo= async (puppiesId)=>{
     </div>
   return (
     <div id="main">
-      <Navbar />
+      <Navbar searchInfo={searchInfo}/>
       {
-        pupInfo.id ? <AdditionalInfo pupInfo = {pupInfo} puppies = {puppies} /> : 
+        pupInfo.id ? <AdditionalInfo setPupInfo={setPupInfo} addInfo={addInfo} pupInfo = {pupInfo} puppies = {puppies} /> :
         <Puppies puppies = {puppies} addInfo = {addInfo}/>
       }
     </div>
