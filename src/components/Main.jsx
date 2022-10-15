@@ -3,24 +3,39 @@ import {Navbar} from './';
 import {Puppies} from './';
 import {AdditionalInfo} from './'
 
+
+
 const Main = () => {
 
   const [puppies, setPuppies] = useState([])
   const [pupInfo, setPupInfo]=useState({})
-  const [searchInfo, setSearchInfo]=useState({names:"", breed:""})
+  const [searchInfo, setSearchInfo]=useState({names:"", breeds:""})
+
 
   function filterPuppies() {
-    // let filteredPuppies = puppies
-    if (!searchInfo.names) {return puppies}
+    let filteredPuppies = filterBreed()
+    console.log(filteredPuppies)
+    if (!searchInfo.names) {return filteredPuppies}
     else{
 
       return puppies.filter((puppy) => {
         console.log(puppy.name)
         return puppy.name.toLowerCase() == searchInfo.names.toLowerCase()
+
       })
 
     }
 
+  }
+  //filterBreed
+  function filterBreed(){
+    if (!searchInfo.breeds) {return puppies}
+    else{
+      return puppies.filter((puppy)=>{
+        return puppy.breed.toLowerCase()==searchInfo.breeds.toLowerCase()
+
+      })
+    }
   }
 
   useEffect(() => {
