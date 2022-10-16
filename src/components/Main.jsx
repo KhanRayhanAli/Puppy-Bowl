@@ -11,29 +11,23 @@ const Main = () => {
   const [pupInfo, setPupInfo]=useState({})
   const [searchInfo, setSearchInfo]=useState({names:"", breeds:""})
 
-
   function filterPuppies() {
     let filteredPuppies = filterBreed()
     console.log(filteredPuppies)
     if (!searchInfo.names) {return filteredPuppies}
     else{
-
       return puppies.filter((puppy) => {
         console.log(puppy.name)
         return puppy.name.toLowerCase() == searchInfo.names.toLowerCase()
-
       })
-
     }
-
   }
-  //filterBreed
+
   function filterBreed(){
     if (!searchInfo.breeds) {return puppies}
     else{
       return puppies.filter((puppy)=>{
         return puppy.breed.toLowerCase()==searchInfo.breeds.toLowerCase()
-
       })
     }
   }
@@ -42,26 +36,24 @@ const Main = () => {
     async function getPuppyData() {
       try {
         const response = await fetch(
-            'https://fsa-puppy-bowl.herokuapp.com/api/2209-FTB-ET-WEB-FT/players'
+          'https://fsa-puppy-bowl.herokuapp.com/api/2209-FTB-ET-WEB-FT/players'
         );
         const result = await response.json();
         setPuppies(result.data.players)
         console.log(result.data.players);
     } catch (err) {
-        console.log('a');
+      console.log('Puppies are loading...');
     }
     }
     getPuppyData()
   }, [])
 
-
-
   const addInfo = async (puppiesId)=>{
-    const response = await fetch (`https://fsa-puppy-bowl.herokuapp.com/api/2209-FTB-ET-WEB-FT/players/${puppiesId}`);
-   const result = await response.json();
-    const pupInfo = result.data.player
-    console.log(pupInfo);
-    setPupInfo(pupInfo)}
+  const response = await fetch (`https://fsa-puppy-bowl.herokuapp.com/api/2209-FTB-ET-WEB-FT/players/${puppiesId}`);
+  const result = await response.json();
+  const pupInfo = result.data.player
+  console.log(pupInfo);
+  setPupInfo(pupInfo)}
   <div id="puppiesEverywhere">
     {puppies.map((puppy) => {
       return (
